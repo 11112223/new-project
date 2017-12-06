@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="/static/jquery-3.2.1.min.js"></script>
+
+</head>
+<body> {# 登录注册 #}
+<button class="jiangxiTV">send ajax</button>
+
+<script>
+{#    function addscripttag(net) {        //首先利用函数创建标签#}
+{#        var script=document.createElement('script');   //创建script标签#}
+{#        script.setAttribute('type','text/javascript');#}
+{#        script.src=net;                                 //再标签上加入src属性,调用路径#}
+{##}
+{#        document.body.appendChild(script);              //用body加上该标签#}
+{#        document.body.removeChild(script)               //调用完以后消失,省空间#}
+{#    }#}
+{##}
+{#function callback(data) {                               //用来接收另一个浏览器数据#}
+{#    console.log(data)                                   //接收到的数据放在这里处理#}
+{# }#}
+{##}
+{#function f() {                                          //点击运行函数,把路径传过去#}
+{#    addscripttag('http://127.0.0.1:8000/blog/jiangxitv/?callback=callback')#}
+{# }#}
+
+</script>
+<script>
+{#$('.jiangxiTV').click(function () {#}
+{#        $.ajax({#}
+{#            url:'http://127.0.0.1:8000/blog/jiangxitv/',  //发送路径#}
+{#            dataType:"jsonp",                    //返回格式#}
+{#            jsonp:'callbacks',#}
+{#            jsonpCallback:'callback'#}
+{#{)#}
+{#{);#}
+{#    function callback(data) {#}
+{#    alert(data)#}
+{##}
+{#    }#}
+{#url: 'http://www.jxntv.cn/data/jmd-jxtv2.html?callback=list&#}
+
+
+
+    $('.jiangxiTV').click(function () {
+        $.ajax({
+            url:'http://www.jxntv.cn/data/jmd-jxtv2.html?callback=list',
+            dataType:'jsonp',
+            jsonp:'callback',
+            jsonpCallback:'list'
+    })
+    });
+    function list(data) {
+        console.log(data)
+    }
+
+
+
+</script>
+
+</body>
+</html>
